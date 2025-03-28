@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="search">
+    <mat-form-field class="search-field">
+      <mat-label>Search the repository</mat-label>
+      <input matInput  [(ngModel)]="searchTerm" (input)="searchRepositories($event)">
+    </mat-form-field>
+  </div>
+
+  @if (repositoriesList$ | async; as repositoriesList) {
+    <div class="cards-container">
+      @for (repository of repositoriesList; track repository.id) {
+        <mat-card class="item-card" (click)="openSelectedRepository(repository.html_url)">
+          <mat-card-content>
+            <p><span class="item-attribute">Name:</span> {{ repository.name }}</p>
+            <p><span class="item-attribute">Description:</span> {{ repository.description }}</p>
+            <p><span class="item-attribute">Language:</span> {{ repository.language }}</p>
+            <p><span class="item-attribute">Owner:</span> {{ repository.owner.login }}</p>
+            <p><span class="item-attribute">Created:</span> {{ repository.created_at  | date}}</p>
+            <p><span class="item-attribute">Updated:</span> {{ repository.updated_at | date }}</p>
+          </mat-card-content>
+        </mat-card>
+      } @empty {
+        <div class="empty-list">{{searchTerm.length > 2 ? 'No repositories found...' : 'Search starts from 3 letters'}}</div>
+      }
+    </div>
+  }
+
+</div>
