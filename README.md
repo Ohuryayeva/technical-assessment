@@ -35,8 +35,10 @@ Ensure you have the following installed on your machine:
 
 1.Clone the repository:
 
-   ```sh
+```sh
    git clone https://github.com/Ohuryayeva/technical-assessment.git
+   ```
+```sh
    cd technical-assessment
 ```
 
@@ -48,9 +50,8 @@ Ensure you have the following installed on your machine:
 
 Start the Angular development server:
 
-   ```sh
-   git clone https://github.com/Ohuryayeva/technical-assessment.git
-   cd technical-assessment
+```sh
+   ng serve
 ```
 
 ## 🧪 Running Tests
